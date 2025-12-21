@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Robux Tax Calculator</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23daa520'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='%23141414' font-family='Arial, sans-serif' font-weight='bold'>R$</text></svg>">
@@ -16,25 +16,20 @@
         body {
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
+            min-height: 100svh;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #0b0b0b 0%, #16100c 50%, #2a1a12 100%);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
-            padding: 20px;
+            padding: clamp(12px, 3vw, 20px);
         }
 
         @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
@@ -45,43 +40,43 @@
         .card {
             background: rgba(20, 20, 20, 0.85);
             backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 40px 32px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
-                        0 0 40px rgba(218, 165, 32, 0.1);
+            border-radius: clamp(16px, 4vw, 24px);
+            padding: clamp(24px, 6vw, 40px) clamp(20px, 5vw, 32px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(218, 165, 32, 0.1);
             border: 1px solid rgba(218, 165, 32, 0.15);
         }
 
         .header {
             text-align: center;
-            margin-bottom: 36px;
+            margin-bottom: clamp(24px, 6vw, 36px);
         }
 
         .title {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: clamp(8px, 2vw, 12px);
             color: #f5f5f5;
-            font-size: 28px;
+            font-size: clamp(20px, 5vw, 28px);
             font-weight: 700;
             margin-bottom: 8px;
         }
 
         .title svg {
-            width: 32px;
-            height: 32px;
+            width: clamp(24px, 6vw, 32px);
+            height: clamp(24px, 6vw, 32px);
             fill: #daa520;
+            flex-shrink: 0;
         }
 
         .subtitle {
             color: #a0a0a0;
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
             font-weight: 400;
         }
 
         .input-group {
-            margin-bottom: 32px;
+            margin-bottom: clamp(24px, 6vw, 32px);
         }
 
         .input-label {
@@ -89,15 +84,16 @@
             align-items: center;
             gap: 8px;
             color: #d0d0d0;
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
             font-weight: 500;
             margin-bottom: 12px;
         }
 
         .input-label svg {
-            width: 16px;
-            height: 16px;
+            width: clamp(14px, 3.5vw, 16px);
+            height: clamp(14px, 3.5vw, 16px);
             fill: #daa520;
+            flex-shrink: 0;
         }
 
         .input-wrapper {
@@ -106,11 +102,11 @@
 
         .input-icon {
             position: absolute;
-            left: 18px;
+            left: clamp(14px, 3.5vw, 18px);
             top: 50%;
             transform: translateY(-50%);
-            width: 18px;
-            height: 18px;
+            width: clamp(16px, 4vw, 18px);
+            height: clamp(16px, 4vw, 18px);
         }
 
         .input-icon svg {
@@ -121,12 +117,12 @@
 
         input {
             width: 100%;
-            padding: 16px 20px 16px 50px;
+            padding: clamp(12px, 3vw, 16px) clamp(16px, 4vw, 20px) clamp(12px, 3vw, 16px) clamp(40px, 10vw, 50px);
             background: rgba(30, 30, 30, 0.6);
             border: 2px solid rgba(218, 165, 32, 0.2);
-            border-radius: 12px;
+            border-radius: clamp(10px, 2.5vw, 12px);
             color: #f5f5f5;
-            font-size: 18px;
+            font-size: clamp(16px, 4vw, 18px);
             font-weight: 600;
             font-family: 'Inter', sans-serif;
             transition: all 0.3s ease;
@@ -155,13 +151,13 @@
 
         .results {
             display: grid;
-            gap: 16px;
+            gap: clamp(12px, 3vw, 16px);
         }
 
         .result-card {
             background: rgba(30, 30, 30, 0.5);
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: clamp(12px, 3vw, 16px);
+            padding: clamp(16px, 4vw, 20px);
             border: 1px solid rgba(218, 165, 32, 0.1);
             transition: all 0.3s ease;
         }
@@ -174,24 +170,26 @@
         }
 
         .result-header svg {
-            width: 18px;
-            height: 18px;
+            width: clamp(16px, 4vw, 18px);
+            height: clamp(16px, 4vw, 18px);
             fill: #888;
+            flex-shrink: 0;
         }
 
         .result-label {
             color: #a0a0a0;
-            font-size: 13px;
+            font-size: clamp(11px, 2.5vw, 13px);
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .result-value {
-            font-size: 32px;
+            font-size: clamp(24px, 6vw, 32px);
             font-weight: 700;
             color: #daa520;
             transition: all 0.3s ease;
+            word-break: break-word;
         }
 
         .result-card:last-child {
@@ -215,25 +213,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .card {
-                padding: 32px 24px;
-            }
-
-            .title {
-                font-size: 24px;
-            }
-
-            .title svg {
-                width: 28px;
-                height: 28px;
-            }
-
-            .result-value {
-                font-size: 28px;
             }
         }
     </style>
